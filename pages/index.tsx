@@ -42,7 +42,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Home: NextPage<{ runtime: string; uuid: object; }> = ({ runtime, uuid,}) => {
+const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid,}) => {
  
   const {destaques} = uuid
   let renderSkeletonList = [];
