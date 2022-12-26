@@ -6,6 +6,14 @@ const nextConfig = {
   appDir: true,
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'static-dev.infoimoveis.com.br',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
