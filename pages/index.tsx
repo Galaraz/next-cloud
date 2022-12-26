@@ -44,7 +44,7 @@ export const getServerSideProps = async () => {
 
 const Home: NextPage<{ runtime: string; uuid: string; }> = ({ runtime, uuid,}) => {
  
-  const {ultimasnoticias,destaques} = uuid
+  // const {ultimasnoticias,destaques} = uuid
   let renderSkeletonList = [];
   for (let i = 0; i < 4; i++) {
       renderSkeletonList[i] = i;        
@@ -53,7 +53,7 @@ const Home: NextPage<{ runtime: string; uuid: string; }> = ({ runtime, uuid,}) =
 
   return (
     <> 
-    {console.log(ultimasnoticias ,"deu certo")}
+    
     <div className={styles.container}>
       
       <Head>
@@ -81,7 +81,7 @@ const Home: NextPage<{ runtime: string; uuid: string; }> = ({ runtime, uuid,}) =
 
                     <div className="row">
                         
-                        { destaques.map((dest: { id: React.Key | null | undefined; imagem: any; tipo: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; finalidade: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; valor: any; valor_condominio: any; dormitorios: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; banheiros: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; area: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; bairro: any; cidade: any; uf: any; }) => (
+                        { uuid.destaques.map((dest: { id: React.Key | null | undefined; imagem: any; tipo: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; finalidade: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; valor: any; valor_condominio: any; dormitorios: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; banheiros: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; area: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; bairro: any; cidade: any; uf: any; }) => (
                             
                             <div key={dest.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
                                 
