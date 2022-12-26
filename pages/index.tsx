@@ -9,10 +9,28 @@ export const config = {
 };
 
 export const getServerSideProps = async () => {
+  const apiId = "992";
+  const apiUrl = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
+  const corpo = await JSON.stringify( {
+    acoes: [                        
+      { metodo: "destaques", params: [ { resultados: "4" }] },
+      { metodo: "ultimasnoticias", params: [ { resultados: "4" }] },
+    ], id: apiId
+  });
+
   return {
     props: {
+      
       runtime: process.env.NEXT_RUNTIME,
-      uuid: await fetch("https://uuid.rocks/plain").then((response) =>
+      
+      uuid: await fetch(
+        apiUrl,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: corpo
+        }
+      ).then((response) =>
         response.text()
       ),
     },
