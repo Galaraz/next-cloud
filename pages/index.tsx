@@ -55,8 +55,8 @@ const Home: NextPage<{ runtime: string; uuid: string; }> = ({
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to{" "}
-          <a href="https://nextjs.org">Next.js, running at the {runtime}!</a>
+          Bem vindo!! {" "}
+          <a href="https://nextjs.org">Next.js, Rodando na  {runtime}!</a>
         </h1>
 
         <p className={styles.description}>
@@ -65,7 +65,7 @@ const Home: NextPage<{ runtime: string; uuid: string; }> = ({
         </p>
 
         <p className={styles.description}>
-          Here&apos;s a server-side UUID:
+          Valore&apos;s Vindo do server-side :
           <code className={styles.code}>{uuid}</code>
         </p>
       </main>
