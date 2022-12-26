@@ -87,7 +87,7 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid,}) => {
                                 
                                 <Link href={`/imovel/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" > 
                                             
-                                    <div className="foto position-relative"><Image src={`${urlImgs}/${dest.imagem}`}width={300} height={50}  alt={dest.tipo} /></div>
+                                    <div className="foto position-relative"><Image src={`${urlImgs}/${dest.imagem}`}width={300} height={50}  alt="imovel" /></div>
                                     <div className="d-flex flex-grow-1 flex-column px-3 py-3">
                                         
                                         <div className="flex-grow-2">
