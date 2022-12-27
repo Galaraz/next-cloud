@@ -45,7 +45,7 @@ export const getServerSideProps = async () => {
 
 const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid, }) => {
 
-  const { destaques,ultimasnoticias } = uuid
+  const { destaques, ultimasnoticias } = uuid
   let renderSkeletonList = [];
   for (let i = 0; i < 4; i++) {
     renderSkeletonList[i] = i;
@@ -55,7 +55,7 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid, }) => 
   return (
 
     <>
-       {console.log(uuid)}
+
       <div className={styles.container}>
 
         <Head>
@@ -127,34 +127,33 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid, }) => 
           </div>
 
           <div className="container py-5 px-4 px-sm-0">
-                    <div className="pb-3 pb-md-5">
-                        <h2 className="color-primary font-28 m-0 pb-2">Notícias Imobiliárias</h2>
-                        <p className="font-14 w-50 pr-0 pr-md-5">Fique por dentro das últimas notícias do setor imobiliário.</p>
-                    </div>
-                    
-               
-                    <div className="row">
+            <div className="pb-3 pb-md-5">
+              <h2 className="color-primary font-28 m-0 pb-2">Notícias Imobiliárias</h2>
+              <p className="font-14 w-50 pr-0 pr-md-5">Fique por dentro das últimas notícias do setor imobiliário.</p>
+            </div>
 
-                        { ultimasnoticias.map((noti: { id: React.Key | null | undefined; imagem: any; titulo: string | number | boolean | React.ReactFragment | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; resumo: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; }) => (
-                            <div key={noti.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
-                                
-                                <Link href={`/noticia/${noti.id}`} className="d-flex flex-column shadow h-100 item-grid-noticia">
-                                                          
-                                    <div className="foto"><Image src={`${urlImgs}/${noti.imagem}`}width={300} height={50} alt="noticia" /></div>
-                                    <div className="d-flex flex-grow-1 flex-column px-3 py-3">                                            
-                                        <div className="flex-grow-1"><h2 className="font-14 line-height-130 color-secondary m-0">{noti.titulo}</h2></div>
-                                        <div className="py-3"><p className="m-0 font-14 line-height-130">{ noti.resumo }</p></div>
-                                        <div className="ler-mais color-primary"><span className="line-height-100 font-14">LER MATÉRIA COMPLETA</span></div>
-                                    </div>
-                                                       
-                                </Link>
-                               
-                            </div>
-                        )) }
 
+            <div className="row">
+             {ultimasnoticias.map((noti: { id: React.Key | null | undefined; imagem: any; titulo: string | number | boolean | React.ReactFragment | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; resumo: string | number | boolean | React.ReactFragment | React.ReactPortal | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined; }) => (
+                <div key={noti.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
+
+                  <Link href={`/noticia/${noti.id}`} className="d-flex flex-column shadow h-100 item-grid-noticia">
+
+                    <div className="foto"><Image src={`${urlImgs}/${noti.imagem}`} width={300} height={50} alt="noticia" /></div>
+                    <div className="d-flex flex-grow-1 flex-column px-3 py-3">
+                      <div className="flex-grow-1"><h2 className="font-14 line-height-130 color-secondary m-0">{noti.titulo}</h2></div>
+                      <div className="py-3"><p className="m-0 font-14 line-height-130">{noti.resumo}</p></div>
+                      <div className="ler-mais color-primary"><span className="line-height-100 font-14">LER MATÉRIA COMPLETA</span></div>
                     </div>
 
-                </div> 
+                  </Link>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
         </main>
       </div>
     </>
