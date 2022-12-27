@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
+
 //import ReactGA from 'react-ga';
 //import ContentHeade from '../components/ContentHeader';
 
