@@ -51,8 +51,7 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid,}) => {
       renderSkeletonList[i] = i;        
   }
 
-  console.log(uuid.erro)
-  return<div>{uuid.erro}</div>
+
   return (
     
     <> 
