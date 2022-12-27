@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -36,8 +36,7 @@ const customStyles = {
 export default function Header(props) {
     const {anunciante,finalidades,perfilcorretores} = useContext(AuthContext);
     let subtitle ="";
-    const isOpen = useSelector(state => state.open);
-    const dispatch = useDispatch();
+    
      // const [ anunciante, setanunciante ] = useState({});
     // const [ finalidades, setFinalidades ] = useState([]);
     const [ showHeaderFixed, setShowHeaderFixed ] = useState(false);
@@ -49,7 +48,7 @@ export default function Header(props) {
     async function openModal() {
         setIsOpen(true);
         
-        dispatch({ type: 'ADD_OPEN', show: false });
+       
         setLoading(false);
            
      }
@@ -85,43 +84,33 @@ export default function Header(props) {
 
  
 
-    useEffect(() => {
+    // useEffect(() => {
         
       
-        window.addEventListener('scroll', function() {
+    //     window.addEventListener('scroll', function() {
             
-            if (window.pageYOffset > scrollTopDist) {
-                !showScrollTop && setShowScrollTop(true);
-                !showHeaderFixed && setShowHeaderFixed(true);
+    //         if (window.pageYOffset > scrollTopDist) {
+    //             !showScrollTop && setShowScrollTop(true);
+    //             !showHeaderFixed && setShowHeaderFixed(true);
                 
-            } else {
-                setShowScrollTop(false);
-                setShowHeaderFixed(false);
-                handleOpenMenu('close');
+    //         } else {
+    //             setShowScrollTop(false);
+    //             setShowHeaderFixed(false);
                 
-            }            
+                
+    //         }            
 
-            if (window.pageYOffset > (scrollTopDist+200)) {
-                dispatch({ type: 'ADD_ACTIVE', show: true }); 
-            } else {
-                dispatch({ type: 'ADD_ACTIVE', show: false });
-            }
+           
             
-        });
+    //     });
         
-    },[]);
+    // },[]);
 
-  
-   
-    function handleOpenMenu(close) {
-        const show = close ? false : !isOpen;
-        dispatch({ type: 'ADD_OPEN', show });
-               
-    }
+ 
 
     return (
         <>
-        <header className={`${isOpen ? 'open ' : ''}d-flex align-items-center header`}>              
+        <header className="d-flex align-items-center header">              
 
             <div className="container d-flex flex-column flex-md-row align-items-center pt-1  pt-md-0 pb-md-0">
             
@@ -129,7 +118,7 @@ export default function Header(props) {
                     <Link href="/"><Image src={Logo} alt="Imobiliaria Test" /></Link>
                 </div>
 
-                <button onClick={() => handleOpenMenu()} className={`${isOpen ? 'open ': ''}d-block d-md-none btn-menu primary border-0 font-16 m-3`}>MENU<div><span></span></div></button>
+                <button onClick={() => handleOpenMenu()} className={`'open '}d-block d-md-none btn-menu primary border-0 font-16 m-3`}>MENU<div><span></span></div></button>
 
                 <div className="d-flex justify-content-end flex-grow-1">
                    
@@ -173,16 +162,16 @@ export default function Header(props) {
             
         </header>
 
-        { headerFixed && (
+        {/* { headerFixed && (
             <>
-            <header className={`${ showScrollTop ? 'show ' : '' }header-fixed${isOpen ? ' open' : ''}`}>
+            <header className={`${ showScrollTop ? 'show ' : '' }header-fixed${' open' }`}>
                 <div className="d-flex justify-content-between container py-2">
                     
                     <div className="d-flex align-items-center logo">
                         <Link href="/"> <Image src={Logo} alt="lojatest - Corretora de Imóvies" /> </Link>
                     </div>
 
-                    <button onClick={() => handleOpenMenu()} className={`${isOpen ? 'open ': ''}d-block d-md-none btn-menu border-0 font-16`}>MENU<div><span></span></div></button>
+                    <button onClick={() => handleOpenMenu()} className={`${ 'open '}d-block d-md-none btn-menu border-0 font-16`}>MENU<div><span></span></div></button>
                     <nav className="d-none d-md-flex align-items-center justify-content-end menu-topo flex-grow-1">
                         <Link href="/" exact>HOME</Link>
                         { (finalidades.includes('Aluguel') || finalidades.includes('Aluguel/Temporada') ) && <Link href="/aluguel">ALUGUEL</Link> }
@@ -194,7 +183,7 @@ export default function Header(props) {
                 </div>
             </header>
 
-            <nav className={`${isOpen ? 'show ' : ''}d-block d-md-none menu-topo-fixed`}>
+            <nav className={` 'show '}d-block d-md-none menu-topo-fixed`}>
                 <Link onClick={() => handleOpenMenu()} href="/" exact>HOME</Link>
                 { (finalidades.includes('Aluguel') || finalidades.includes('Aluguel/Temporada') ) && <Link onClick={() => handleOpenMenu()} href="/aluguel">ALUGUEL</Link> }
                 { finalidades.includes('Venda') && <Link onClick={() => handleOpenMenu()} href="/venda">VENDA</Link> }
@@ -228,7 +217,7 @@ export default function Header(props) {
                 
             </Modal>
             </>
-        ) }
+        ) } */}
         
 
         <div className={`${ showScrollTop ? 'show ' : '' }btnToTop p-4`}>
