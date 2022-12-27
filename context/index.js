@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
    async function getDados (){
     setLoadingDados(true)
     const apiUrlLocal =  window.location.href
-    const response = await fetch(apiUrlLocal+"/api/getDados")
+    const response = await fetch(apiUrlLocal+"api/getDados")
     const list = await response.json()
       
       Object.keys(list).includes('anunciante') && setAnunciante(list.anunciante)

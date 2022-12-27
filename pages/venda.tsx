@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, SetStateAction, JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,13 +14,14 @@ import { descriptionDefault, urlImgs, urlSite, moneyFormatter, titleSite, itensP
 import Place from '../img/place.svg';
 import SmFoto from '../img/sm-foto.jpg';
 import Sm1Foto from '../img/sm-1foto.jpg';
+import { NextPage } from 'next/types';
 
 
-export default function Venda(props) {
- const result = props.busca
+const Venda: NextPage< {props: { busca: any; }} > = ({props}) =>  {
+//  const result = props.busca
 
 
- const {pagina_atual,total_registros,imoveis} = result;
+ const {pagina_atual,total_registros,imoveis} = props.busca;
    
   
     
@@ -70,7 +71,7 @@ export default function Venda(props) {
         
     // }, [busca]);
 
-    function handlePaginacao(value) {         
+    function handlePaginacao(value: SetStateAction<string>) {         
         setPagina(value);
         setBusca(value);        
     }
@@ -169,14 +170,14 @@ export default function Venda(props) {
                             
                             <div className="row pt-2 pb-5">
                                 
-                                { imoveis.map(imovel => {
+                                { imoveis.map((imovel: { id: Key | null | undefined; imagem: any; tipo: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined; maisimagens: any; finalidade: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; valor: any; valor_condominio: any; dormitorios: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined; banheiros: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined; area: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | null | undefined; bairro: any; cidade: any; uf: any; }) => {
                                     return (
                                         <div key={imovel.id} className="col-12 col-md-6 col-xl-3 py-4">
                                             <Link href={`/imovel/${imovel.id}`} className="d-flex flex-column shadow h-100 item-grid">                                        
                                                 <div className="foto position-relative">
-                                                    { imovel.imagem ? <Image src={`${urlImgs}/${imovel.imagem}`} alt={imovel.tipo} width="310" height="200" />  : ""}
-                                                    { !imovel.imagem  && imovel.maisimagens ? <Image src={Sm1Foto} alt={imovel.tipo} width="310" height="200" /> : "" }
-                                                    { !imovel.imagem  && !imovel.maisimagens ? <Image src={SmFoto} alt={imovel.tipo} width="310" height="200" /> : "" }      
+                                                    { imovel.imagem ? <Image src={`${urlImgs}/${imovel.imagem}`} alt="tipo" width="310" height="200" />  : ""}
+                                                    { !imovel.imagem  && imovel.maisimagens ? <Image src={Sm1Foto} alt="tipo" width="310" height="200" /> : "" }
+                                                    { !imovel.imagem  && !imovel.maisimagens ? <Image src={SmFoto} alt="tipo" width="310" height="200" /> : "" }      
                                                     {/* <Skeleton className="skeleton-absolute" /> */}
                                                 </div>
                                                 <div className="d-flex flex-grow-1 flex-column px-3 py-3">
@@ -224,7 +225,7 @@ export default function Venda(props) {
                                         itemsCountPerPage={itensPorPagina}
                                         totalItemsCount={total_registros}
                                         pageRangeDisplayed={5}                                    
-                                        onChange={e => handlePaginacao(e)}
+                                        onChange={(e: any) => handlePaginacao(e)}
                                     /> 
                                 </div> 
                             ) }
@@ -245,8 +246,9 @@ export default function Venda(props) {
         </>
     );
 }
+export default Venda ;
 
-export async function getServerSideProps() {
+export const getServerSideProps = async () => {
  
     const resposta = await fetch(urlSite+"/api/venda")
     const list = await resposta.json()

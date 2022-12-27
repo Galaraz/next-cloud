@@ -4,8 +4,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { NextPage } from "next";
-
-import styles from "../styles/Home.module.css";
 import Place from '../img/place.svg';
 import { descriptionDefault, urlImgs, urlSite, moneyFormatter, titleSite, urlFavicon } from '../utils';
 
@@ -55,7 +53,7 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
 
     <>
 
-      <div className={styles.container}>
+      <div>
 
         <Head>
         <link rel="apple-touch-icon" sizes="57x57" href={ `${urlFavicon}apple-icon-57x57.png`} />
@@ -96,7 +94,7 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
         <meta property="twitter:image" content={`${urlFavicon}padrao.png`} />
         </Head>
 
-        <main className={styles.main}>
+        <main className="main">
 
 
           <div className="container py-4 px-4 px-sm-0">

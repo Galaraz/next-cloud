@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-// import { Helmet } from 'react-helmet';
 import Head from 'next/head';
 import Image from 'next/image';
 //import ReactGA from 'react-ga';
-import ContentHeade from '../components/ContentHeader';
-import NumberFormat from 'react-number-format';
+//import ContentHeade from '../components/ContentHeader';
+//import NumberFormat from 'react-number-format';
 import { ToastContainer } from 'react-toastify';
 
 import { api, apiId, descriptionDefault, existsOrError, urlSite, titleSite, notify, IsEmail, isMobile, urlFavicon } from '../utils';
