@@ -27,8 +27,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
 
-      runtime: process.env.NEXT_RUNTIME,
-
+     
       uuid: await fetch(
         apiUrl,
         {
@@ -43,7 +42,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid, }) => {
+const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
 
   const { destaques, ultimasnoticias } = uuid
   let renderSkeletonList = [];
@@ -116,7 +115,7 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid, }) => 
 
                   <Link href={`/imovel/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >
 
-                    <div className="foto position-relative"><Image src={`${urlImgs}/${dest.imagem}`} width={300} height={50} alt="imovel" /></div>
+                    <div className="foto position-relative"><Image src={`${urlImgs}/${dest.imagem}`} width={290} height={200} alt="imovel" /></div>
                     <div className="d-flex flex-grow-1 flex-column px-3 py-3">
 
                       <div className="flex-grow-2">
@@ -169,7 +168,7 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid, }) => 
 
                   <Link href={`/noticia/${noti.id}`} className="d-flex flex-column shadow h-100 item-grid-noticia">
 
-                    <div className="foto"><Image src={`${urlImgs}/${noti.imagem}`} width={300} height={50} alt="noticia" /></div>
+                    <div className="foto"><Image src={`${urlImgs}/${noti.imagem}`} width={290} height={200} alt="noticia" /></div>
                     <div className="d-flex flex-grow-1 flex-column px-3 py-3">
                       <div className="flex-grow-1"><h2 className="font-14 line-height-130 color-secondary m-0">{noti.titulo}</h2></div>
                       <div className="py-3"><p className="m-0 font-14 line-height-130">{noti.resumo}</p></div>
