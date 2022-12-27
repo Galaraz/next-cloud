@@ -25,6 +25,7 @@
     "@cloudflare/next-on-pages": "^0.2.0",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
+    "prettier": "2.8.1",
     "vercel": "^28.10.1",
     "wrangler": "^2.6.2"
   }
