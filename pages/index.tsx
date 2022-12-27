@@ -14,14 +14,14 @@ export const config = {
 };
 
 export const getServerSideProps = async () => {
-  // const apiId = "992";
-  // const apiUrl = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
-  // const corpo = await JSON.stringify( {
-  //   acoes: [                        
-  //     { metodo: "destaques", params: [ { resultados: "4" }] },
-  //     { metodo: "ultimasnoticias", params: [ { resultados: "4" }] },
-  //   ], id: apiId
-  // });
+  const apiId = "992";
+  const apiUrl = "https://dev.infoimoveis.com.br/webservice/hotsites.php";
+  const corpo = await JSON.stringify( {
+    acoes: [                        
+      { metodo: "destaques", params: [ { resultados: "4" }] },
+      { metodo: "ultimasnoticias", params: [ { resultados: "4" }] },
+    ], id: apiId
+  });
 
 
   return {
@@ -30,11 +30,11 @@ export const getServerSideProps = async () => {
       runtime: process.env.NEXT_RUNTIME,
       
       uuid: await fetch(
-        "https://pokeapi.co/api/v2/pokemon",
+        apiUrl,
         {
-          method: 'GET',
+          method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          
+          body:corpo
         }
       ).then((response) =>
         response.json()
@@ -45,14 +45,16 @@ export const getServerSideProps = async () => {
 
 const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid,}) => {
  
-  const {results} = uuid
+  const {destaques} = uuid
   let renderSkeletonList = [];
   for (let i = 0; i < 4; i++) {
       renderSkeletonList[i] = i;        
   }
 
-
+  console.log(uuid.erro)
+  return<div>{uuid.erro}</div>
   return (
+    
     <> 
     
     <div className={styles.container}>
@@ -81,30 +83,8 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid,}) => {
                  
 
                     <div className="row">
-                        {results.map((pokemon: { id: React.Key | null | undefined; imagem: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => (
-                          <div key={pokemon.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
-                                    <Link href={`/pokemon/${pokemon.id}`} className="d-flex flex-column shadow h-100 item-grid" > 
-                                               
-                                    <div className="foto position-relative"></div>
-                                    <div className="d-flex flex-grow-1 flex-column px-3 py-3">
-                                        
-                                        <div className="flex-grow-2">
-                                            <div className="font-12 font-md-11 line-height-100">{pokemon.name}</div>
-                                            
-                                          
-                                        </div>
-
-                               
-                                        
-                                      
-                                        
-                                    </div>
-                                                             
-                                </Link>
-                                </div>
-                        ))}
-                      
-                        {/* { destaques.map((dest: { id: React.Key | null | undefined; imagem: any; tipo: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; finalidade: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; valor: any; valor_condominio: any; dormitorios: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; banheiros: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; area: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; bairro: any; cidade: any; uf: any; }) => (
+                                     
+                        { destaques.map((dest: { id: React.Key | null | undefined; imagem: any; tipo: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; finalidade: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; valor: any; valor_condominio: any; dormitorios: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; banheiros: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; area: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; bairro: any; cidade: any; uf: any; }) => (
                             
                             <div key={dest.id} className="col-12 col-md-6 col-xl-3 py-3 py-xl-0">
                                 
@@ -145,7 +125,7 @@ const Home: NextPage<{ runtime: string; uuid: any; }> = ({ runtime, uuid,}) => {
                                 
                             </div>
 
-                        )) } */}
+                        )) }
 
                     </div>
                 </div>
