@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext} from 'react';
 import { Modal } from 'react-bootstrap';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Select from 'react-select';
+
 import QueryString from 'querystring';
 import {AuthContext} from '../../context';
 import Search from '../../img/search.svg';

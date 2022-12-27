@@ -3,8 +3,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 //import ReactGA from 'react-ga';
-import ContentHeade from '../components/ContentHeader';
-import Select from 'react-select';
+//import ContentHeade from '../components/ContentHeader';
+
 // import NumberFormat from 'react-number-format';
 import { ToastContainer } from 'react-toastify';
 
@@ -126,9 +126,9 @@ export default function BancoPedidos(props) {
                 <title>Banco de Pedidos | { titleSite }</title>
             </Head>
             
-            <div className={`${isOpen ? 'open ': ''}main`}>
+            <div className={`main`}>
 
-                <ContentHeade title="Banco de Pedidos"  />
+                {/* <ContentHeade title="Banco de Pedidos"  /> */}
 
                 <div className="container py-5 font-14 px-4 px-sm-0">
                     <p>Preencha o formulário abaixo e solicite o imóvel que tanto deseja, descreva as principais características, que iremos procurar para você!</p>

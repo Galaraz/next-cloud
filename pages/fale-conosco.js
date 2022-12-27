@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 // import { Helmet } from 'react-helmet';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
 //import ReactGA from 'react-ga';
 import ContentHeade from '../components/ContentHeader';
 import NumberFormat from 'react-number-format';
@@ -15,7 +14,7 @@ import FundoFaleConosco from '../img/foto-destaque-banco-de-pedidos.jpg';
 
 export default function FaleConosco(props) {
 
-    const isOpen = useSelector(state => state.open);
+   
     const [ loading, setLoading ] = useState(false);
     const [ formulario, setFormulario ] = useState({ nomecompleto: '',email: '',cidade: '',uf: '',telefone: '', mensagem: '' });
     const [ validate, setValidate ] = useState({ validateName: true,validateEmail: true,validateTel: true,validateCity: true,validateUf: true,validateMensage: true });
@@ -119,9 +118,9 @@ export default function FaleConosco(props) {
                 <title>Fale Conosco | { titleSite }</title>
             </Head>
 
-            <div className={`${isOpen ? 'open ': ''}main`}>
+            <div className={`main`}>
 
-                 <ContentHeade title="Fale Conosco" /> 
+                 {/* <ContentHeade title="Fale Conosco" />  */}
 
                 <div className="container py-5 font-14">
                     
