@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { NextPage } from "next";
 import Place from '../img/place.svg';
-import { descriptionDefault, urlImgs, urlSite, titleSite, urlFavicon } from '../utils';
+import { descriptionDefault, urlImgs, urlSite, titleSite, urlFavicon, cloudflareLoader } from '../utils';
 
 export const config = {
   runtime: "experimental-edge",
@@ -41,6 +41,7 @@ export const getServerSideProps = async () => {
 };
 
 const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
+
 
   const { destaques, ultimasnoticias } = uuid
   let renderSkeletonList = [];
@@ -113,7 +114,7 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
 
                   <Link href={`/imovel/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >
 
-                    <div className="foto position-relative"><Image src={`${urlImgs}/${dest.imagem}`} width={290} height={200} alt="imovel" /></div>
+                    <div className="foto position-relative"><Image loader={cloudflareLoader} src={`${urlImgs}/${dest.imagem}`} width={290} height={200} alt="imovel" /></div>
                     <div className="d-flex flex-grow-1 flex-column px-3 py-3">
 
                       <div className="flex-grow-2">
@@ -138,7 +139,7 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
                       </div>
 
                       <div className="endereco font-12 line-height-130">
-                        <Image src={Place} width={72} height={16} alt="" />
+                        <Image loader={cloudflareLoader} src={Place} width={72} height={16} alt="" />
                         {`${dest.bairro} | ${dest.cidade}/${dest.uf}`}
                       </div>
 
@@ -166,7 +167,7 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
 
                   <Link href={`/noticia/${noti.id}`} className="d-flex flex-column shadow h-100 item-grid-noticia">
 
-                    <div className="foto"><Image src={`${urlImgs}/${noti.imagem}`} width={290} height={200} alt="noticia" /></div>
+                    <div className="foto"><Image loader={cloudflareLoader} src={`${urlImgs}/${noti.imagem}`} width={290} height={200} alt="noticia" /></div>
                     <div className="d-flex flex-grow-1 flex-column px-3 py-3">
                       <div className="flex-grow-1"><h2 className="font-14 line-height-130 color-secondary m-0">{noti.titulo}</h2></div>
                       <div className="py-3"><p className="m-0 font-14 line-height-130">{noti.resumo}</p></div>

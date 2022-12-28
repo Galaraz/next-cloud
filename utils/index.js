@@ -17,6 +17,18 @@ const gaId = '';
 const reloadTime = 5000;
 
 
+const normalizeSrc = src => {
+    return src.startsWith('/') ? src.slice(1) : src;
+  };
+  
+  const cloudflareLoader = ({ src, width, quality }) => {
+    const params = [`width=${width}`];
+    if (quality) {
+      params.push(`quality=${quality}`);
+    }
+    const paramsString = params.join(',');
+    return `${urlImgs}/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
+  };
 
  
 export { 
@@ -25,15 +37,14 @@ export {
     urlImgs, 
     urlSite,
     descriptionDefault,
-  
     titleSite, 
     itensPorPagina,    
-    
     scrollTopDist,
     headerFixed,
     gaId,
     reloadTime,
     urlFavicon,
     urlFacebook,
-    urlInstagram
+    urlInstagram,
+    cloudflareLoader
 }
