@@ -17,11 +17,17 @@ const gaId = '';
 const reloadTime = 5000;
 
 
-const normalizeSrc = src => {
+
+interface Props {
+  src: string,
+  width: number,
+  quality: number,
+}
+const normalizeSrc = (src: string) => {
     return src.startsWith('/') ? src.slice(1) : src;
   };
   
-  const cloudflareLoader = ({ src, width, quality }) => {
+  export default function cloudflareLoader({ src , width, quality}: Props)  {
     const params = [`width=${width}`];
     if (quality) {
       params.push(`quality=${quality}`);
