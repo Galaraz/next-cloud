@@ -1,5 +1,3 @@
-//import axios from 'axios';
-
 import { toast } from 'react-toastify';
 
 const apiId = "992";
@@ -18,73 +16,6 @@ const scrollTopDist = 200;
 const gaId = '';
 const reloadTime = 5000;
 
-
-
-const defaulTheme = {    
-    navFixedWidth: '200px',
-    navFixedTranform: '-200px',
-    headerHeight: '125px',
-    contentPrimaryHeaderHeight: '400px',
-    contentSecondaryHeaderHeight: '100px',
-    contentSecondaryHeaderHeightMobile: '60px',
-    mapHeight: '250px',
-    footerHeight: '255px',
-}
-
-const lightTheme = {    
-    title: 'light',
-    mainBackground: '#FFF',
-    placeholderColor: 'rgb(128, 128, 128)',
-    defaultColor: '#313131',
-    mainColor: '#5e5e5e',   
-    mainBorderColor: '#E9E9E9', 
-    primaryColor: '#343434',
-    secondaryColor: '#5E5E5E',
-    navColor: '#343434',
-    navColorHover: '#343434',
-    btnPrimaryColor: '#8B303F',
-    btnPrimaryColorHover: '#323465',
-    btnSecondaryColor: '#8B303F',
-    btnSecondaryColorHover: '#323465',        
-    navFixedBackground: '#F1F1F1',
-    activeColor: '#8B303F',
-    headerBackground: '#FFF',
-    footerBackground: 'transparent',    
-    bodyBackground: '#FFF',
-    shadow: '0 4px 30px rgba(135,135,135,.4)',
-    shadowHover: '0 4px 5px rgba(135,135,135,.4)',
-    shadowSM: '0 4px 10px rgba(135,135,135,.4)',
-    skeletonRoot: '#EBEBEB',
-    addressFont: '#FFF',
-    skeletonAnimation: 'linear-gradient(90deg, rgba(255,255,255, 0) 0, rgba(255,255,255, .2) 25%, rgba(255,255,255, .3) 50%, rgba(255,255,255, .2) 75%, rgba(255,255,255, .0) 100%);',
-}
-const darkTheme = {
-    title: 'dark',    
-    mainBackground: '#33302D',
-    placeholderColor: 'rgb(128, 128, 128)',
-    defaultColor: '#33302D',
-    mainColor: 'rgba(255,255,255,.7)',   
-    mainBorderColor: '#D2AE70', 
-    primaryColor: '#33302D',
-    secondaryColor: 'rgba(255,255,255,.75)',
-    navColor: '#FFFFFF',
-    navColorHover: '#FFFFFF',
-    btnPrimaryColor: '#8B303F',
-    btnPrimaryColorHover: '#323465',
-    btnSecondaryColor: '#8B303F',
-    btnSecondaryColorHover: '#323465',
-    btnSecondaryColorHover: '#7D7542',    
-    navFixedBackground: '#F1F1F1',
-    activeColor: '#8B303F',    
-    headerBackground: '#33302D',        
-    footerBackground: 'transparent',    
-    bodyBackground: '#FFFFFF',
-    shadow: '0 4px 5px rgba(0,0,0,.3)',
-    shadowHover: '0 4px 30px rgba(0,0,0,.3)',
-    shadowSM: '0 4px 10px rgba(0,0,0,.3)',    
-    skeletonRoot: '#EBEBEB',
-    skeletonAnimation: 'linear-gradient(90deg, rgba(255,255,255, 0) 0, rgba(255,255,255, .2) 25%, rgba(255,255,255, .3) 50%, rgba(255,255,255, .2) 75%, rgba(255,255,255, .0) 100%);',
-}
 
 const moneyFormatter = (valor) => { 
     // eslint-disable-next-line
@@ -190,9 +121,6 @@ export {
     notify, 
     titleSite, 
     itensPorPagina,    
-    defaulTheme,
-    lightTheme,
-    darkTheme,
     verificarCreci,
     handleUrl,
     scrollTopDist,
