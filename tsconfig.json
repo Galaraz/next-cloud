@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "context/index.js","utils/index.tsx",  "pages/aluguel.tsx", "pages/venda.tsx", "pages/noticia/[id].tsx","pages/imovel/[id].tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "context/index.js","utils/index.js,  "pages/aluguel.tsx", "pages/venda.tsx", "pages/noticia/[id].tsx","pages/imovel/[id].tsx"],
   "exclude": ["node_modules"]
 }
