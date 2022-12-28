@@ -16,8 +16,6 @@ const scrollTopDist = 200;
 const gaId = '';
 const reloadTime = 5000;
 
-
-
 interface Props {
   src: string,
   width: number,
@@ -35,7 +33,6 @@ const normalizeSrc = (src: string) => {
     const paramsString = params.join(',');
     return `${urlImgs}/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
   };
-
  
 export { 
     apiUrl,     
@@ -52,5 +49,6 @@ export {
     urlFavicon,
     urlFacebook,
     urlInstagram,
-    cloudflareLoader
+    cloudflareLoader,
+    
 }

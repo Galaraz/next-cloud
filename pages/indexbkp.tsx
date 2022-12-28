@@ -40,6 +40,9 @@ export const getServerSideProps = async () => {
   };
 };
 
+
+
+
 const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
 
 
@@ -114,7 +117,7 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
 
                   <Link href={`/imovel/${dest.id}`} className="d-flex flex-column shadow h-100 item-grid" >
 
-                    <div className="foto position-relative"><Image loader={cloudflareLoader} src={`${urlImgs}/${dest.imagem}`} width={290} height={200} alt="imovel" /></div>
+                    <div className="foto position-relative"><Image loader={`${urlImgs}/${dest.imagem}`} src={`${urlImgs}/${dest.imagem}`} width={290} height={200} alt="imovel" /></div>
                     <div className="d-flex flex-grow-1 flex-column px-3 py-3">
 
                       <div className="flex-grow-2">
