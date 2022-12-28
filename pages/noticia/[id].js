@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import { useState, useEffect, useRef } from 'react';
 
 import Image from 'next/image';
-//import ReactGA from 'react-ga';
-// import ContentHeade from '../../components/ContentHeader';
 
 
 import { apiUrl,  apiId, urlImgs, urlSite, titleSite, reloadTime, urlFavicon } from '../../utils';
@@ -14,30 +12,7 @@ export default function Noticia(props) {
 
     
 
-    
    
-    const [ noticia, setNoticia ] = useState(props.noticia);
-
-    useEffect(() => {
-        getDados();
-        // window.scroll({ top: (ancor.current.offsetTop + 50), left: 0, behavior: 'smooth' });
-        //ReactGA.initialize(gaId, {debug: false});
-        //ReactGA.pageview(props.location.pathname);
-    },[]);
-
-    function getDados() {
-              
-      
-        // }).then(resp => {                 
-        //     Object.keys(resp.data.noticia).includes('erro') && props.history.push(`/404`);           
-        //     setNoticia(resp.data.noticia);      
-        //     setTimeout(() => {setPageSkeleton(false)}, 100);              
-        // }).catch(e => {
-        //     setTimeout(() => { getDados() }, reloadTime);
-        //    
-        // });
-    }
-
     return (
         <>        
             <Head>
@@ -70,60 +45,13 @@ export default function Noticia(props) {
                 <title>{ Object.keys(noticia).length > 0 ? `${noticia.titulo} | Notícia | ${titleSite}` : `${titleSite}`}</title>
             </Head>
 
-            <div className="main">
-            
-                {/* <ContentHeade title="Notícia"  /> */}
-
-                <div className="container noticia px-4 px-sm-0">        
-                    
-                    {/* { pageSkeleton ? (
-                        <>
-                        <div className="pt-5 pb-4 border-bottom">
-                            <div className="font-12 opacity-75 pb-3"><Skeleton width={187} height={15} /></div>
-                            <h2 className="font-32 font-md-40 line-height-130 color-primary m-0 p-0"><Skeleton height={52} /></h2>
-                        </div>
-                        <div className="d-table w-100 pt-4 pb-5 font-16 line-height-160 opacity-75 texto">
-                            <div style={{ maxWidth: '500px' }}>
-                                <div style={{ paddingTop: '75%' }} className="w-100 skeleton-root"></div>
-                            </div>
-                        </div>
-                        </>
-                    ) : ( */}
-                        <>
-                        <div className="pt-5 pb-4 border-bottom">
-                            <div className="font-12 opacity-75 pb-3">{ noticia.data }</div>
-                            <h2 className="font-32 font-md-40 line-height-130 color-primary m-0 p-0">{ noticia.titulo }</h2>
-                        </div>
-
-                        <div className="d-table w-100 pt-4 pb-5 font-16 line-height-160 texto">
-                            
-                            { noticia.imagem && ( 
-                                <div className="float-none float-md-left mr-0 mr-md-4 mb-4 opacity-75">
-                                    <Image className="mx-auto mx-md-0" src={`${urlImgs}/${noticia.imagem}`} alt={noticia.titulo}  width="300" height="300"/> 
-                                    <span className="d-block font-12 font-italic pt-1 text-center">{ noticia.fonte }</span>
-                                </div> 
-                            ) }
-
-                            <div>
-                                <div className="redes-sociais d-flex align-items-center justify-content-end py-2 mb-3">
-                                    <span className="font-11 font-italic mr-2">Compartilhar:</span>
-                                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${urlSite}/noticia/${noticia.id}`} className="facebook mx-0" target="_blank" rel="noopener noreferrer nofollow">Facebook</a>   
-                                    <a href={`https://twitter.com/intent/tweet?text=${urlSite}/noticia/${noticia.id}`} className="instagram mx-1" target="_blank" rel="noopener noreferrer nofollow">Instagram</a>
-                                    <a href={`https://api.whatsapp.com/send?text=${urlSite}/noticia/${noticia.id}`} className="whatsapp mx-0" target="_blank" rel="noopener noreferrer nofollow">Whatsapp</a>
-                                </div>
-                                <div className="texto" dangerouslySetInnerHTML={{__html: noticia.texto}}></div>                         
-                            </div>
-
-                        </div>
-                        </>
-                   
+        
+             <h1>noticia</h1>
+     
 
                           
 
-                </div>    
-
-            </div>            
-                
+             
         </>
             
     );
