@@ -1,10 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-
-
-import { apiId, apiUrl, urlImgs, urlSite, urlFavicon, moneyFormatter,titleSite } from '../../utils';
+import { apiId, apiUrl,  } from '../../utils';
 
 
 
