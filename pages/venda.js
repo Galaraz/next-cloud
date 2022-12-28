@@ -21,20 +21,8 @@ export default function Venda(props) {
 
 
  const {pagina_atual,total_registros,imoveis} = result;
-   
-  
-    
-    // const [ totalImoveis, setTotalImoveis ] = useState(total_registros);
-    // const [ listaImoveis, setImoveis ] = useState(imoveis);
-    // const [ filtros, setFiltros ] = useState([                
-    //     { value: 'default', label: 'FILTRAR' },
-    //     { value: 'recentes', label: 'Recentes' },
-    //     { value: 'relevancia', label: 'Relevância' },
-    //     { value: 'menorvalor', label: 'Menor Valor' },
-    //     { value: 'maiorvalor', label: 'Maior Valor' },
-    // ]);
+
     const [ pagina, setPagina ] = useState(pagina_atual);
-    // const [ filtrado, setFiltrado ] = useState('');
     const [ busca, setBusca ] = useState('');
 
     useEffect(() => {
@@ -52,67 +40,21 @@ export default function Venda(props) {
         //ReactGA.pageview(props.location.pathname);
 
     },[]);
-
    
-    // useEffect(() => {
-                    
-               
-        
-    //     const novaUrl = [];
-    //     pagina && novaUrl.push(`pg=${pagina}`);
-    //     (filtrado && filtrado !== 'default') && novaUrl.push(`ordenacao=${filtrado}`);        
-    //     window.history.pushState("", "", `/venda${novaUrl.length > 0 ? `?${novaUrl.join('&')}` : ''}`);   
-        
-    //     // const newSearch = handleUrl(`?${novaUrl.join('&')}`);        
-    //    // getDados(newSearch);
 
-    //     handleScroll();
-        
-    // }, [busca]);
 
     function handlePaginacao(value) {         
         setPagina(value);
         setBusca(value);        
     }
 
-    // function handleOrdenacao(value) {        
-    //     setFiltrado(value);
-    //     setBusca(value);        
-    // }
+ 
 
     function handleScroll() {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     }
 
-    // function getDados({ ...search }) {
-    //     setPageSkeleton(true);   
-    //     api.post('',{
-    //         //api : base64({})                    
-    //         acoes: [                        
-    //             { 
-    //                 metodo: "busca", 
-    //                 params: [ 
-    //                     { 
-    //                         ...search,
-    //                         finalidade: "2",                            
-    //                         resultados: itensPorPagina
-    //                     }
-    //                 ] 
-    //             },                
-    //         ],
-    //         id: apiId                 
-    //     }).then(resp => {            
-    //         setTotalImoveis(resp.data.busca.total_registros);
-    //         setImoveis(resp.data.busca.imoveis);
-    //         setTimeout(() => {setPageSkeleton(false)}, 100);
-    //     }).catch(e => {
-    //         setTimeout(() => { getDados({ ...search }) }, reloadTime);
-    //         
-    //     });
-    // }
-
-    let renderSkeletonList = [];
-    for (let i = 0; i < itensPorPagina; i++) { renderSkeletonList[i] = i; }
+ 
 
     return (
         <>

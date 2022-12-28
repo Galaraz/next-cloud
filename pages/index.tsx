@@ -24,7 +24,6 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-
      
       uuid: await fetch(
         apiUrl,
