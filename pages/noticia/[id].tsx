@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 
-import { apiUrl,  apiId, urlImgs, urlSite, titleSite, reloadTime, urlFavicon } from '../../utils';
+import { apiUrl,  apiId,  titleSite, } from '../../utils';
 
 export default function Noticia(props: any) {    
 

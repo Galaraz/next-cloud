@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { NextPage } from "next";
 import Place from '../img/place.svg';
-import { descriptionDefault, urlImgs, urlSite, moneyFormatter, titleSite, urlFavicon } from '../utils';
+import { descriptionDefault, urlImgs, urlSite, titleSite, urlFavicon } from '../utils';
 
 export const config = {
   runtime: "experimental-edge",
@@ -120,13 +120,13 @@ const Home: NextPage<{ uuid: any; }> = ({ uuid }) => {
                         <div className="font-12 font-md-11 line-height-100">{dest.finalidade}{dest.tipo && <small className="ml-1 font-italic opacity-50">({dest.tipo})</small>}</div>
                         <div className="font-20 color-primary">
                           {dest.valor ? (
-                            <b>R$ {moneyFormatter(dest.valor)}</b>
+                            <b>R$ {(dest.valor)}</b>
                           ) :
                             (
                               <b>SEM VALOR</b>
                             )}
                         </div>
-                        {dest.valor_condominio && <div className="font-12 font-md-11 line-height-100 color-secondary">Condomínio: R$ {moneyFormatter(dest.valor_condominio)}</div>}
+                        {dest.valor_condominio && <div className="font-12 font-md-11 line-height-100 color-secondary">Condomínio: R$ {(dest.valor_condominio)}</div>}
                       </div>
 
                       <div className="d-flex infos flex-grow-1 align-items-center py-3">
